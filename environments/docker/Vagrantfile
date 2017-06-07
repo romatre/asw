@@ -58,6 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         # node.vm.provision :shell, path: "../shared/scripts/setup-maven.sh"
 
 		# installa docker e docker compose 
+        node.vm.provision :shell, path: "../shared/scripts/add-swarm-host.sh"
         node.vm.provision :shell, path: "../shared/scripts/setup-docker.sh"
         node.vm.provision :shell, path: "../shared/scripts/setup-docker-compose.sh"
         

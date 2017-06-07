@@ -1,7 +1,7 @@
 version: '3'
 services:
   eureka:
-    image: swarm.inf.uniroma3.it:5000/eureka-server-img
+    image: swarm.inf.uniroma3.it:5000/eureka-server-img-9001
 #    container_name: eureka 
 #    ports:
 #    - "8761:8761"
@@ -9,7 +9,7 @@ services:
       placement:
         constraints: [node.role == manager]
   subject:
-    image: swarm.inf.uniroma3.it:5000/word-img
+    image: swarm.inf.uniroma3.it:5000/word-img-9001
 #    ports: 
 #    - "8080"
     depends_on:
@@ -19,8 +19,8 @@ services:
       mode: replicated
       replicas: 1    
   verb:
-    image: swarm.inf.uniroma3.it:5000/word-img
-#    ports: 
+    image: swarm.inf.uniroma3.it:5000/word-img-9001
+#    ports:
 #    - "8080"
     depends_on:
     - "eureka"
@@ -29,7 +29,7 @@ services:
       mode: replicated
       replicas: 1    
   object:
-    image: swarm.inf.uniroma3.it:5000/word-img
+    image: swarm.inf.uniroma3.it:5000/word-img-9001
 #    ports: 
 #    - "8080"
     depends_on:
@@ -39,7 +39,7 @@ services:
       mode: replicated
       replicas: 1    
   sentence:
-    image: swarm.inf.uniroma3.it:5000/sentence-img
+    image: swarm.inf.uniroma3.it:5000/sentence-img-9001
 #    ports: 
 #    - "8080"
     depends_on:
@@ -48,12 +48,12 @@ services:
       mode: replicated
       replicas: 2    
   zuul:
-    image: swarm.inf.uniroma3.it:5000/sentence-zuul-img
+    image: swarm.inf.uniroma3.it:5000/sentence-zuul-img-9001
 #    container_name: zuul 
     depends_on:
     - "eureka"
     ports:
-    - "8080:8080"
+    - "9001:8080"
 
 
 
